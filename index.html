@@ -1,12 +1,23 @@
+<!DOCTYPE html>
 <html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Portfólio</title>
     <link rel="stylesheet" href="style.css"> <!-- Link para o arquivo CSS -->
 </head>
 <body>
-    <div class="claquete">
+
+<div id="loader">
+    <p id="loader-message"></p>
+    <img src="claquete.gif" alt="GIF Loader">
+</div>
+<div id="content" style="display: none;">
+
+</div> 
+
+   <div class="claquete">
         <div class="tracinhos">
             <div class="tracinho"></div>
             <div class="tracinho"></div>
@@ -22,18 +33,270 @@
     
     <div class="tela-inteira">
         <div class="titulo">
-            <p><i>PRODUÇÃO:</i><u>PORTFÓLIO</u></p>
-            <p><i>DIREÇÃO:</i><u>LARA SOUSA</u></p>
-            <div class="container">
-                <span>DATA</span>
-                <div class="linha-vertical"></div>
-                <span>CENA</span>
-                <div class="linha-vertical"></div>
-                <span>TAKE</span>
-            </div>
+            <p class="sublinhado"><i>PRODUÇÃO:</i> PORTFÓLIO</p>
+            <p class="sublinhado"><i>DIREÇÃO:</i> LARA SOUSA</p>
+        </div>
+    </div>
+    
+    <div class="fotos">
+        <img src="FOTOS SITE/IMG_8335.JPG" alt="Foto 1">
+        <img src="FOTOS SITE/IMG_20230612_214516_036.jpg" alt="Foto 2">
+        <img src="FOTOS SITE/IMG_8258.JPG" alt="Foto 3">
+    </div>
+
+    <div style=" background-color: #fffffffa;">
+      
+        <div class="container2">
+              <h1 class="titulo2">SOBRE MIM</h1>
+               <div class="texto1" >
+        <p>
+             O meu nome é Lara Sousa, tenho 18 anos e sou aluna na Universidade Lusófona do Porto, 
+            no curso de Comunicação Audiovisual e Multimédia. Antes de vir para a universidade estudei
+            na Escola Artística de Soares dos Reis, no Porto, também no curso de Comunicação Audiovisual e Multimédia
+            na especialização de Cinema e Vídeo. 
+            <p>  Tenho experiência em produção e edição de vídeo. Este interesse surgiu por um mero acaso, 
+                quando era mais nova, onde eu experimentei editar um vídeo. Correu bem, gostei da área 
+                e continuei a produzir os meus conteúdos e a editá-los.</p>
+                <p> Os vídeos que crio são maioritariamente de momentos que eu filmo 
+                com os meus amigos e acabo por editar de uma maneira engraçada e por postar alguns deles 
+                na minha conta do Instagram. </p> 
+          </p>
+        </div>
+    </div>
+</div>
+    
+        <!-- Rolo de filme como fundo -->
+        <div class="film-strip"></div>
+        <div class="cantinho-preto"></div>
+<div class="conteudo">
+    <!-- Seu conteúdo branco ao lado -->
+</div>
+
+
+    <div class="carousel-container">
+        <div class="carousel">
+       
+          <img src="FOTOS SITE/IMG_0908.JPG" alt="Foto 2" class="carousel-item">
+          <img src="FOTOS SITE/IMG_8594.JPG" alt="Foto 1" class="carousel-item">
+          <img src="FOTOS SITE/IMG_8245.JPG" alt="Foto 3" class="carousel-item">
+          <img src="FOTOS SITE/IMG-20230314-WA0012.jpg" alt="Foto 4" class="carousel-item">
+          <img src="FOTOS SITE/IMG-20240213-WA0109.jpg" alt="Foto 7" class="carousel-item">
+          <img src="FOTOS SITE/IMG-20230127-WA0248.jpg" alt="Foto 8" class="carousel-item">
+        </div>
+     
+        <div class="controls">
+          <span class="dot" data-index="0"></span>
+          <span class="dot" data-index="1"></span>
+          <span class="dot" data-index="2"></span>
+          <span class="dot" data-index="3"></span>
+          <span class="dot" data-index="4"></span>
+          <span class="dot" data-index="5"></span>
+          <span class="dot" data-index="6"></span>
+        </div>
+      </div>
+    
+      <div class="navbar">
+        <button class="navbar-btn" data-target="filmes">Filmes</button>
+        <button class="navbar-btn" data-target="series">Séries</button>
+        <button class="navbar-btn" data-target="musicais">Animações</button>
+    </div>
+    
+    <div id="filmes" class="conteudo">
+        <h2>ALGUNS DOS MEUS FILMES FAVORITOS</h2>
+        
+<div class="posters-grid">
+    <div class="image-container">
+    <img src="FOTOS SITE/LA LA LAND.jpg" alt="Poster Principal" class="imagem principal">
+    <img src="FOTOS SITE/sebs (2).png" alt="Imagem Extra" class="imagem-lateral">
+    <div class="info">
+        <h3>La La Land (2016) </h3>
+        <p>Diretor: Damien Chazelle</p>
+        <p class="rating">
+            <span class="full">&#9733;</span>
+            <span class="full">&#9733;</span>
+            <span class="full">&#9733;</span>
+            <span class="full">&#9733;</span>
+            <span class="inactive">&#9733;</span>
+        </p>
+    </div>
+</div>
+
+    <div class="image-container">
+        <img src="FOTOS SITE/1917.jpg" alt="Poster 2" class="imagem principal">
+        <img src="FOTOS SITE/bcab2ac77772050591433c83aad565c8-removebg-preview.png" alt="Imagem Extra 2" class="imagem-lateral lateral-2">
+        <div class="info">
+            <h3>1917 (2019) </h3>
+            <p>Diretor: Sam Mendes</p>
+            <p class="rating">
+                <span class="full">&#9733;</span>
+                <span class="full">&#9733;</span>
+                <span class="full">&#9733;</span>
+                <span class="full">&#9733;</span>
+                <span class="inactive">&#9733;</span>
+            </p>
         </div>
     </div>
 
-    <!-- Conteúdo abaixo para dar scroll -->
-    <div style="height: 2000px; background-color: #fffffffa;">
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero totam deleniti dolores iure repudiandae soluta recusandae aspernatur aliquam porro animi quia non, inventore eum pariatur molestias tempore cum labore minus?</p>
+    <div class="image-container">
+        <img src="FOTOS SITE/deadpool 3.jpg" alt="Poster 3" class="imagem principal">
+        <img src="FOTOS SITE/deadpool.png" alt="Imagem Extra 3" class="imagem-lateral lateral-3">
+        <div class="info">
+            <h3>Deadpool & Wolverine (2024) </h3>
+            <p>Diretor: Shawn Levy</p>
+            <p class="rating">
+                <span class="full">&#9733;</span>
+                <span class="full">&#9733;</span>
+                <span class="full">&#9733;</span>
+                <span class="full">&#9733;</span>
+                <span class="inactive">&#9733;</span>
+    </div>
+</div>
+ </div>
+</div>
+    
+  <div id="series" class="conteudo">
+        <h2>ALGUMAS DAS MINHAS SÉRIES FAVORITAS</h2>
+        <div class="posters-grid">
+            <div class="image-container">
+            <img src="FOTOS SITE/THE OFFICE.jpg" alt="Poster Principal" class="imagem principal">
+            <img src="FOTOS SITE/image-removebg-preview.png" alt="Imagem Extra" class="imagem-lateral lateral-6">
+            <div class="info">
+                <h3>The Office (2005-2013) </h3>
+                <p>Diretor: Bryan Cranston</p>
+                <p class="rating">
+                    <span class="full">&#9733;</span>
+                    <span class="full">&#9733;</span>
+                    <span class="full">&#9733;</span>
+                    <span class="full">&#9733;</span>
+                    <span class="half">&#9733;</span>
+                </p>
+            </div>
+        </div>
+        
+            <div class="image-container">
+                <img src="FOTOS SITE/loki.jpg" alt="Poster 2" class="imagem principal">
+                <img src="FOTOS SITE/lokiiee.png" alt="Imagem Extra 2" class="imagem-lateral lateral-4">
+                <div class="info">
+                    <h3>Loki (2021-2023) </h3>
+                    <p>Diretor: Michael Waldron</p>
+                    <p class="rating">
+                        <span class="full">&#9733;</span>
+                        <span class="full">&#9733;</span>
+                        <span class="full">&#9733;</span>
+                        <span class="full">&#9733;</span>
+                        <span class="inactive">&#9733;</span>
+                    </p>
+                </div>
+            </div>
+        
+            <div class="image-container">
+                <img src="FOTOS SITE/heartstopper.jpg" alt="Poster 3" class="imagem principal">
+                <img src="FOTOS SITE/folhas.png" alt="Imagem Extra 3" class="imagem-lateral lateral-5">
+                <div class="info">
+                    <h3>Heartstopper (2022-...) </h3>
+                    <p>Diretores: Euros Lyn e Naican Escobar</p>
+                    <p class="rating">
+                        <span class="full">&#9733;</span>
+                        <span class="full">&#9733;</span>
+                        <span class="full">&#9733;</span>
+                        <span class="full">&#9733;</span>
+                        <span class="inactive">&#9733;</span>
+            </div>
+        </div>
+         </div>
+        </div>
+   
+    <div id="musicais" class="conteudo">
+        <h2>ALGUMAS DAS MINHAS ANIMAÇÕES FAVORITAS</h2>
+        <div class="posters-grid">
+            <div class="image-container">
+            <img src="FOTOS SITE/arcane-season-1-poster.jpg" alt="Poster Principal" class="imagem principal">
+            <img src="FOTOS SITE/arcane2.png" alt="Imagem Extra" class="imagem-lateral lateral-7">
+            <div class="info">
+                <h3>Arcane (2021-2024) </h3>
+                <p>Diretores: Pascal Charrue e Arnaud Delord</p>
+                <p class="rating">
+                    <span class="full">&#9733;</span>
+                    <span class="full">&#9733;</span>
+                    <span class="full">&#9733;</span>
+                    <span class="full">&#9733;</span>
+                    <span class="half">&#9733;</span>
+                </p>
+            </div>
+        </div>
+        
+            <div class="image-container">
+                <img src="FOTOS SITE/8105Oc1+FPL.jpg" alt="Poster 2" class="imagem principal">
+                <img src="FOTOS SITE/miles.png" alt="Imagem Extra 2" class="imagem-lateral lateral-8">
+                <div class="info">
+                    <h3>Homem-Aranha: Através do Aranhaverso (2023) </h3>
+                    <p>Diretor:  Joaquim Dos Santos, Kemp Powers e Justin K. Thompson</p>
+                    <p class="rating">
+                        <span class="full">&#9733;</span>
+                        <span class="full">&#9733;</span>
+                        <span class="full">&#9733;</span>
+                        <span class="full">&#9733;</span>
+                        <span class="half">&#9733;</span>
+                    </p>
+                </div>
+            </div>
+        
+            <div class="image-container">
+                <img src="FOTOS SITE/mimimi.jpg" alt="Poster 3" class="imagem principal">
+                <img src="FOTOS SITE/jack.png" alt="Imagem Extra 3" class="imagem-lateral lateral-9">
+                <div class="info">
+                    <h3>O Estranho Mundo de Jack (1993) </h3>
+                    <p>Diretor: Henry Selick</p>
+                    <p class="rating">
+                        <span class="full">&#9733;</span>
+                        <span class="full">&#9733;</span>
+                        <span class="full">&#9733;</span>
+                        <span class="full">&#9733;</span>
+                        <span class="inactive">&#9733;</span>
+            </div>
+        </div>
+         </div>
+        </div>
+   
+    </div>
+
+    <div class="container5">
+        <h1 class="titulo3">O QUE JÁ FIZ E O QUE SEI FAZER</h1>
+        <div class="texto2-container">
+         <div class="texto2">
+            <p>
+                No ano passado, tive a oportunidade de criar diversos vídeos, principalmente como parte dos trabalhos escolares. 
+                Entre os vários projetos, o que mais me desafiou e que mais se aproximou da experiência de criar um filme real foi a minha PAA (Projeto de Aptidão Artística).
+                Este trabalho, que desenvolvemos como avaliação no último período do 12º ano, exigiu um enorme empenho, criatividade e
+                atenção aos detalhes, sendo um marco importante no meu percurso enquanto criador.
+               <p>Para além da produção de vídeos, domino várias ferramentas que complementam o meu trabalho criativo, 
+                como o Photoshop e o Illustrator para design gráfico, o Davinci Resolve para edição e pós-produção de vídeo, o 3ds Max para modelação 
+                e animação 3D e o Krita para ilustração digital. Estas competências permitem-me explorar diferentes áreas e 
+                trazer vida às minhas ideias de forma versátil e profissional.</p>
+            
+               </p>
+            
+             </div>
+           </div>
+       </div>
+
+       <footer class="footer">
+        <div class="footer-container">
+            <p class="footer-text">Contactos:</p>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/lara_sousa_6/" target="_blank">
+                    <img src="FOTOS SITE/Instagram_logo.png" alt="Instagram" class="social-icon">
+                </a>
+            </div>
+            <div class="contact-info">
+                <p>Email: <a href="mailto:larapatriciasousa883@gmail.com">larapatriciasousa883@gmail.com</a></p>
+                <p>Nº: <a href="tel:+351919372614">919372614</a></p>
+
+                <p class="footer-note">© 2024 | Desenvolvido por Lara Sousa</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js" defer></script> 
+</body>
+</html>

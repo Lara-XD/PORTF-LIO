@@ -1,10 +1,53 @@
 body {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 400vh;
+}
+
+html, body {
+  overflow-x: hidden; /* Remove a barra horizontal */
+}
+
+#content {
+    display: none;
+}
+
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000; /* Fundo preto */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column-reverse;
+    z-index: 9999;
+    color: #fffffffa;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#loader img {
+    width: 380px; 
+    height: auto;
+}
+
+#loader p {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+#content {
+    display: none; 
 }
 
 .claquete {
     position: relative;
-    height: 50px;
+    height: 80px;
     display: flex;
     background-color: #fffffffa;
     justify-content: space-between;
@@ -21,7 +64,7 @@ body {
 
 .tracinho {
     width: 45px;
-    height: 270px;
+    height: 370px;
     background-color: #000;
     transform: rotate(+45deg);
     transform-origin: bottom left;
@@ -29,71 +72,578 @@ body {
 }
 
 .tela-inteira {
-    width: 1500px;
+    width: 100vw; 
     background-color: #000; 
-    color: #fffffffa; 
+    color: #ffffffeb; 
     margin: 0;
-    min-height: 100vh;
-    display: flex; /* Usa flexbox para centralizar o conteúdo */
-    justify-content: flex-start; /* Alinha o conteúdo à esquerda */
-    align-items: center; /* Centraliza verticalmente */
-    flex-direction: column; /* Alinha o texto em coluna */
-    padding: 20px; /* Adiciona um pouco de espaçamento interno */
+    min-height: calc(100vh - 80px);
+    display: flex; 
+    justify-content: flex-start; 
+    align-items: center; 
+    flex-direction: column; 
+    padding: 20px; 
 }
-
 .titulo {
-    font-size: 130px; /* Tamanho da fonte */
+    font-size: 7rem;
     text-align: left;
     margin: 0;
     font-family: 'Courier New', Courier, monospace;
     position: relative;
+    width: 100%; 
+    padding: 0px 80px; 
+    box-sizing: border-box; 
+    
 }
 
-.container {
+.sublinhado {
+    text-decoration: underline; /* Adiciona o sublinhado simples */
+    text-underline-offset: 40px; /* Ajusta a distância do sublinhado */
+}
+
+.fotos {
     display: flex;
-    align-items: center;
-    font-size: 130px;
-    flex-direction: row;
-    justify-content: flex-start;
+    justify-content: center; 
+    gap: 0px; 
+    margin-top: 0px; 
+    width: 100%; 
+    padding: 0 20px; 
+    box-sizing: border-box; 
+    overflow: hidden; 
+    background-color: #000; /* Fundo escuro ou correspondente à imagem */
+
 }
 
-.linha-vertical {
-    width: 3px;
-    height: 50px;
-    background-color: #fffffffa;
-    margin-top: 1em;
+.fotos img {
+  width: 100%; 
+  height: auto; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+  flex: 1; 
+  max-width: 500px; 
+  z-index: 4;
+  filter: blur(3px);
+  transition: filter 0.5s ease;
+}
+
+.fotos img.hovered {
+   filter: blur(0);
+}
+
+.titulo2 {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 45px;
+    margin: 0px 60px;
+    top: 40px;
     position: relative;
-    align-items: center;
+
+
 }
 
-/* Estilos para dispositivos com largura máxima de 768px (tablets e telemóveis) */
+.container2 {
+  position: relative;
+  overflow: hidden; /* Garante que o texto fique limitado ao contêiner */
+}
+
+.titulo2, .texto1 {
+  opacity: 0; /* Inicialmente invisível */
+  transform: translateY(-50px); /* Posição inicial fora da tela */
+  transition: opacity 1.0s ease, transform 1.0s ease; /* Animação suave */
+}
+
+.titulo2.visible, .texto1.visible {
+  opacity: 1; /* Torna visível */
+  transform: translateY(0); /* Move para a posição final */
+}
+
+.texto1 {
+    font-size: 18px; /* Tamanho da fonte */
+    color: #000000;     /* Cor do texto */
+    line-height: 1.5; /* Espaçamento entre linhas */
+    margin: -20px 50px 0 50px;   /* Margem superior e inferior */
+    align-items: left;
+    gap: 5px;
+    text-align: left;
+    max-width: 900px;
+    text-indent: 10px;
+    text-align: justify;
+    margin-top: 60px;
+    font-family: 'Courier New', Courier, monospace;
+  }
+  
+  /* Rolo de filme como fundo */
+  .film-strip {
+    position: absolute;
+    top: 1530px;
+    left: 987px;
+    width: 520px;
+    height: 520px;
+    background-image: url('FOTOS SITE/png-transparent-camera-film-film-reel-cinema-film-reel-s-text-rectangle-symmetry-thumbnail.png'); /* Caminho para a sua imagem */
+    background-repeat: no-repeat;
+    background-size: 100% ; /* Estica a imagem para preencher o tamanho definido */
+    z-index: 2; /* Certifica-se de que fique abaixo do carrossel */
+    pointer-events: none; /* Evita que interfira com os cliques no carrossel */
+  }
+
+  .cantinho-preto {
+    position: absolute;
+    top: 1530px;
+    left: 1300px; /* Ou ajuste para onde o cantinho está */
+    width: 300px; /* Ajuste a largura do cantinho */
+    height: 520px; /* Altura total da tela */
+    background-color: black;
+    z-index: 1; /* Para garantir que fique visível */
+}
+.carousel-container {
+  width: 270px; /* Largura do carrossel */
+  height: 370px; /* Altura do carrossel */
+  overflow: hidden;
+  border: 5px solid #000000;
+  border-radius: 0px;
+  z-index: 3;
+  background-color: #000;
+  position: absolute;           /* Usando posição absoluta para controlarmos a posição */
+  top: 1615px;                    /* Distância do topo (ajuste conforme necessário) */
+  right: 126px;        
+}
+
+/* Carrossel */
+.carousel {
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.5s ease-in-out; /* Animação suave */
+}
+
+.carousel-item {
+  width: 100%; /* Largura ajustada ao contêiner */
+  height: 100%; /* Altura igual ao contêiner */
+  object-fit: cover; /* Garante que a imagem seja ajustada proporcionalmente */
+}
+
+/* Controles (bolinhas) */
+.controls {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background-color: #fff;
+  border-radius: 0%;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.3s;
+
+}
+
+.dot:hover, .dot.active {
+  opacity: 1;
+  background-color: #2936e8;
+}
+
+/* Estilo da faixa preta */
+.faixa-preta {
+  background-color: #000; /* Fundo preto */
+  width: 200px; /* Largura da faixa */
+  height: 100vh; /* Altura total da tela */
+  display: flex; /* Ativa o flexbox */
+  flex-direction: column; /* Alinha os botões verticalmente */
+  align-items: center; /* Centraliza os botões horizontalmente */
+  padding: 10px; /* Espaçamento interno */
+  position: fixed; /* Fixa a faixa no lado esquerdo da tela */
+  top: 0;
+  left: 0;
+}
+
+/* Estilo da barra de navegação */
+.navbar {
+  background-color: black; /* Cor de fundo preta */
+  padding: 10px; /* Espaçamento interno */
+  display: flex; /* Ativa o flexbox */
+  justify-content: center; /* Alinha os botões no centro */
+  gap: 20px; /* Espaçamento entre os botões */
+  margin-top: 33px;
+  justify-content: space-evenly;
+}
+
+/* Estilo dos botões */
+.navbar-btn {
+  background-color: #000000; /* Cor do botão */
+  color: #ffffffeb; /* Cor do texto */
+  border: none; /* Remove a borda */
+  padding: 10px 20px; /* Espaçamento dentro do botão */
+  font-size: 24px; /* Tamanho da fonte */
+  font-family: 'Courier New', Courier, monospace;
+  cursor: pointer; /* Altera o cursor para pointer */
+  border-radius: 0px; /* Bordas arredondadas */
+  transition: background-color 0.3s; /* Transição suave para a cor */
+  
+}
+
+/* Cor ao passar o cursor */
+.navbar-btn:hover {
+  background-color: #2936e8; /* Cor do botão ao passar o mouse */
+}
+
+/* Conteúdo oculto inicialmente */
+.conteudo {
+  display: none;
+  padding: 20px;
+  margin-top: 12px;
+  background-color: #ffffffeb ;
+  font-size: 35px;
+  justify-content: center;
+  position: relative;
+  font-family: 'Courier New', Courier, monospace;
+  margin: 0px 270px;
+  text-align: center;
+  
+}
+
+/* Exibe o conteúdo quando visível */
+.conteudo.show {
+  display: block;
+}
+
+.posters-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 colunas */
+  grid-auto-rows: auto;
+  gap: 60px; /* Espaçamento entre os posters */
+  position: relative;
+}
+
+.posters-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 colunas */
+  grid-auto-rows: auto;
+  gap: 0px; /* Removido o gap para não afetar o espaçamento geral */
+  margin: 40px 20px;
+  top: 45px;
+  position: relative;
+}
+
+/* Ajuste para o Poster 1: Move para a esquerda */
+.posters-grid > :nth-child(1) {
+  grid-column: 1; /* Alinha o primeiro poster na primeira coluna */
+  justify-self: start; /* Move para o canto esquerdo */
+  margin-left: -90px; /* Ajuste a margem para mover o poster mais para a esquerda */
+}
+
+/* Ajuste para o Poster 2: Deixa no centro */
+.posters-grid > :nth-child(2) {
+  grid-column: 2; /* Centraliza o segundo poster */
+  justify-self: center;
+}
+
+/* Ajuste para o Poster 3: Move para a direita */
+.posters-grid > :nth-child(3) {
+  grid-column: 3; /* Alinha o terceiro poster na terceira coluna */
+  justify-self: end; /* Move para o canto direito */
+  margin-right: -90px; /* Ajuste a margem para mover o poster mais para a direita */
+}
+
+.posters-grid > :nth-child(4),
+.posters-grid > :nth-child(5) {
+  margin-top: 70px; /* Ajusta o espaçamento para formar a pirâmide */
+}
+
+.posters-grid > :nth-child(1) {
+  grid-column: 1; /* Alinha o primeiro poster à esquerda */
+  justify-self: start;
+}
+
+.posters-grid > :nth-child(2) {
+  grid-column: 2; /* Centraliza o segundo poster */
+  justify-self: center;
+}
+
+.posters-grid > :nth-child(3) {
+  grid-column: 3; /* Alinha o terceiro poster à direita */
+  justify-self: end;
+}
+
+.posters-grid > :nth-child(4) {
+  grid-column: 1; /* Alinha o quarto poster na primeira coluna */
+  justify-self: start;
+}
+
+.posters-grid > :nth-child(5) {
+  grid-column: 3; /* Alinha o quinto poster na terceira coluna */
+  justify-self: end;
+}
+
+/* Contêiner individual para cada poster */
+.image-container {
+  position: relative;
+  display: inline-block;
+  width: 200px; /* Tamanho reduzido dos posters */
+  overflow: visible;
+}
+
+/* Poster principal */
+.imagem.principal {
+  max-width: 400px;
+  max-height: 350px;
+  width: auto;
+  height: auto;
+  transition: transform 0.5s ease; /* Transição suave para zoom */
+  z-index: 0; /* Fica acima da imagem lateral */
+  position: relative;
+}
+
+/* Efeito de zoom no poster principal */
+.imagem.principal:hover {
+  transform: scale(1.1);
+}
+
+/* Imagem lateral */
+.imagem-lateral {
+  position: absolute;
+  top: -80px; /* Ajuste para posicionar no canto superior */
+  right: -160px; /* Ajuste para posicionar no canto direito */
+  width: 130px; /* Tamanho reduzido da imagem lateral */
+  height: auto;
+  opacity: 0; /* Inicialmente invisível */
+  transition: opacity 0.5s ease, transform 0.5s ease; /* Animação suave */
+  transform: scale(0.8); /* Começa menor */
+  z-index: 1; /* Fica atrás do poster principal */
+  pointer-events: none; 
+}
+
+.lateral-2 {
+  right: -165px; /* Ajusta a posição horizontal */
+  width: 155px; /* Tamanho reduzido da imagem lateral */
+  height: auto;
+  top: -70px;
+}
+
+.lateral-3 {
+  width: 150px; /* Tamanho reduzido da imagem lateral */
+  height: auto;
+  top: -95px;
+}
+
+/* Tornar visível a imagem lateral ao passar o mouse */
+.image-container:hover .imagem-lateral {
+  opacity: 1;
+  transform: scale(1); /* Retorna ao tamanho original */
+}
+
+/* Ajuste para a grade responsiva */
 @media (max-width: 768px) {
-    .tela-inteira {
-        /* Ajuste de margens ou tamanhos para ecrãs menores */
-        padding: 10px;
-    }
-    
-    .titulo p {
-        font-size: 16px; /* Diminuir o tamanho da fonte para se adequar ao ecrã menor */
-    }
-    
-    .container {
-        flex-direction: column; /* Alterar a direção para vertical em ecrãs pequenos */
-        text-align: center; /* Centralizar o texto */
-    }
-    
-    .linha-vertical {
-        display: none; /* Esconder as linhas verticais em ecrãs menores */
-    }
+  .posters-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas em telas menores */
+  }
 }
 
-/* Estilos para dispositivos com largura máxima de 480px (telemóveis pequenos) */
 @media (max-width: 480px) {
-    .tracinhos .tracinho {
-        width: 20px; /* Ajustar o tamanho dos tracinhos */
-    }
-    
-    .titulo p {
-        font-size: 14px;
-    }
+  .posters-grid {
+    grid-template-columns: 1fr; /* 1 coluna em telas muito pequenas */
+  }
 }
+
+/* Estilo do contêiner de informações */
+.info {
+  text-align: center; /* Centraliza o texto */
+  margin-top: 15px; /* Espaçamento entre o poster e as informações */
+  font-family: 'Courier New', Courier, monospace; /* Fonte consistente */
+  color: #04071a; /* Cor branca para texto */
+  margin-left: 34px; /* Mover para a direita */
+}
+
+.info h3 {
+  font-size: 23px; /* Tamanho do nome do filme */
+  margin: 5px 0; /* Espaçamento superior e inferior */
+}
+
+.info p {
+  margin: 2px 0; /* Margem menor para diretores e classificação */
+  font-size: 18px; /* Tamanho menor para detalhes */
+  font-family: 'Courier New', Courier, monospace;
+}
+
+/* Estilo para a classificação por estrelas */
+.rating {
+  color: #121212e7; /* Cor padrão (cinza) para as estrelas vazias */
+}
+
+.rating .full {
+  color: gold; /* Cor dourada para as estrelas completas */
+}
+
+.rating .half {
+  display: inline-block; /* Para garantir que a estrela apareça em linha */
+  position: relative; /* Necessário para o controle da "metade" da estrela */
+  color: gray; /* Cor da estrela vazia (cinza) */
+}
+
+.rating .half::after {
+  content: '\2605'; /* Símbolo da estrela */
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: gold; /* Cor dourada para a "metade" da estrela */
+  width: 50%; /* Largura da metade da estrela */
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.rating span {
+  margin-right: 3px; /* Espaçamento entre as estrelas */
+  display: inline-block; /* Para manter as estrelas alinhadas */
+  font-size: 25px;
+}
+
+/* Para adicionar uma classe de inatividade, você pode definir a cor da estrela como cinza e reduzir a opacidade */
+.rating .inactive {
+  color: #121212e7; /* Cor cinza */
+  opacity: 0.5; /* Reduz opacidade para parecer "apagada" */
+}
+
+.lateral-4 {
+  width: 90px; /* Tamanho reduzido da imagem lateral */
+  height: auto;
+  top: -55px;
+  margin-right: 20px;
+}
+
+.lateral-5 {
+  width: 135px; /* Tamanho reduzido da imagem lateral */
+  height: auto;
+  top: -65px;
+  margin-right: 18px;
+}
+
+.lateral-6 {
+  width: 115px; /* Tamanho reduzido da imagem lateral */
+  height: auto;
+  top: -85px;
+  right: -140px;
+}
+
+.lateral-7 {
+  width: 100px; /* Tamanho reduzido da imagem lateral */
+  height: auto;
+  top: -75px;
+  right: -145px;
+}
+.lateral-8 {
+  width: 100px; /* Tamanho reduzido da imagem lateral */
+  height: auto;
+  top: -65px;
+  right: -140px;
+}
+.lateral-9 {
+  width: 80px; /* Tamanho reduzido da imagem lateral */
+  height: auto;
+  top: -65px;
+  right: -140px;
+}
+
+.container5 {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centraliza horizontalmente */
+  justify-content: center; /* Centraliza verticalmente */
+  text-align: center;
+  height: 100vh; /* Ocupa a altura total da tela */
+  position: relative;
+}
+
+.titulo3 {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 45px;
+  margin: 0px 60px;
+  top: 40px;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  color: #000;
+
+}
+
+.titulo3, .texto2 {
+  opacity: 0; /* Inicialmente invisível */
+  transform: translateY(-50px); /* Fora da tela */
+  transition: opacity 1.0s ease, transform 1.0s ease; /* Animação suave */
+}
+
+.titulo3.visible, .texto2.visible {
+  opacity: 1; /* Torna visível */
+  transform: translateY(0); /* Move para a posição final */
+}
+.texto2 {
+  font-size: 18px; /* Tamanho da fonte */
+  color: #000000; /* Cor do texto */
+  line-height: 1.5; /* Espaçamento entre linhas */
+  text-align: justify; /* Centraliza o texto horizontalmente */
+  max-width: 600px; /* Limita a largura para um efeito mais organizado */
+  margin: 0 auto; /* Centraliza horizontalmente */
+  margin-top: 60px; /* Espaço superior */
+  font-family: 'Courier New', Courier, monospace; /* Fonte */
+}
+
+
+.texto2-container {
+  max-width: 600px; /* Limita a largura para criar um formato quadrado */
+  background: rgba(255, 255, 255, 0.9); /* Fundo branco com opacidade */
+  padding: 20px;
+  justify-content: center;
+  margin-left: 0px;
+}
+.footer {
+  background-color: #000; /* Fundo preto */
+  color: #fffffff4; /* Texto branco */
+  padding: 100px; /* Espaçamento interno */
+  text-align: left; 
+  font-family: 'Courier New', Courier, monospace; /* Fonte */
+}
+
+.footer-container {
+  max-width: 1200px; /* Largura máxima */
+  margin: 0 auto; /* Centraliza o contêiner */
+}
+
+.footer-text {
+  font-size: 24px; /* Tamanho do texto "Contactos" */
+  margin-bottom: 10px; /* Espaçamento inferior */
+}
+
+.social-icons {
+  display: flex;
+  justify-content: left; /* Centraliza os ícones */
+  gap: 15px; /* Espaçamento entre os ícones */
+  margin: 10px 0; /* Espaço vertical */
+}
+
+.social-icons img {
+  width: 40px; /* Tamanho do ícone */
+  height: 40px;
+  transition: transform 0.3s ease; /* Animação ao passar o mouse */
+}
+
+.social-icons img:hover {
+  transform: scale(1.2); /* Amplia ao passar o mouse */
+}
+
+.contact-info {
+  margin-top: 10px; /* Espaçamento superior */
+  font-size: 18px; /* Tamanho do texto dos contatos */
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.contact-info a {
+  color: #fff; /* Mantém os links brancos */
+  text-decoration: none; /* Remove sublinhado */
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.contact-info a:hover {
+  text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+  font-family: 'Courier New', Courier, monospace;
+}
+
